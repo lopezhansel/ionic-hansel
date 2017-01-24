@@ -1,0 +1,15 @@
+{
+  "name": "ionic-hansel",
+  "version": "1.0.0",
+  "description": "Code used within many of my ionic apps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lopezhansel@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "@types/axios": "^0.9.35",
+    "axios": "^0.15.3"
+  }
+}
