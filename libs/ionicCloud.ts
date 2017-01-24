@@ -16,6 +16,14 @@ export default class IonicCloud {
     static init(bearerToken: string, profile: string) {
         IonicCloud.ionicProfile = profile;
         IonicCloud.bearerToken = bearerToken;
+        
+        IonicCloud.ionicHttp = axios.create({
+            baseURL: 'https://api.ionic.io/push/',
+            headers: {
+                "Authorization": bearerToken,
+                "Content-Type": "application/json"
+            }
+        });
     }
 
     static sendNotification(messageParam: string, deviceToken: string | string[]) {
