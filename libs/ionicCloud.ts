@@ -1,7 +1,7 @@
 import * as axios from 'axios';
 import * as I from '../interfaces';
 
-export default class IonicCloud {
+export class IonicCloud {
     public static ionicProfile = "";
     public static bearerToken = ""
 
@@ -16,7 +16,7 @@ export default class IonicCloud {
     static init(bearerToken: string, profile: string) {
         IonicCloud.ionicProfile = profile;
         IonicCloud.bearerToken = bearerToken;
-        
+
         IonicCloud.ionicHttp = axios.create({
             baseURL: 'https://api.ionic.io/push/',
             headers: {
@@ -47,7 +47,7 @@ export default class IonicCloud {
     }
 
     static getIosTokensThenSendNotif(messageParam: string, deviceToken: string) {
-        return IonicCloud.ionicHttp.get<I.ionCloud.getTokens.response>('tokens')
+        return IonicCloud.ionicHttp.get<I.getTokens.response>('tokens')
             .then(function (response) {
                 console.log(JSON.stringify(response.data))
 
@@ -57,12 +57,7 @@ export default class IonicCloud {
                     return el.token
                 })
                 return tokens
-                // console.log('success', tokens)
-            })
-            .catch(function (err) {
-                // return "hi"
-                return err
-                // console.log('error', err)
+
             })
     }
 

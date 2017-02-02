@@ -1,3 +1,1 @@
-import * as ionCloud from './ionicCloud'
-
-export {ionCloud}
+export * from './ionicCloud'

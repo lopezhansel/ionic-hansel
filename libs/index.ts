@@ -1,3 +1,2 @@
-import ionic from './ionicCloud'
+export * from './ionicCloud'
 
-export default {ionic}
