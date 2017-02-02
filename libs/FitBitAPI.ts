@@ -5,11 +5,11 @@ import * as moment from 'moment'
 
 
 export class FitbitApiData {
-
+    
     public userId: string = '-';
     public static bearerToken = ""
     public http = axios.create({
-        baseURL: 'https://api.ionic.io/push/',
+        baseURL: 'https://api.fitbit.com/1/',
         headers: {
             "Authorization": FitbitApiData.bearerToken,
             'Accept-Language': 'en_US'
@@ -19,28 +19,28 @@ export class FitbitApiData {
     constructor() { }
 
     logNewActivity(activity) {
-        return this.http.post(`https://api.fitbit.com/1/user/${this.userId}/activities.json`, activity)
+        return this.http.post(`user/${this.userId}/activities.json`, activity)
     }
 
     getUserInfo() {
-        return this.http.get(`https://api.fitbit.com/1/user/-/profile.json`)
+        return this.http.get(`user/-/profile.json`)
     }
 
     getSteps() {
-        return this.http.get(`https://api.fitbit.com/1/user/${this.userId}/activities/steps/date/today/3m.json`)
+        return this.http.get(`user/${this.userId}/activities/steps/date/today/3m.json`)
     }
 
     getActivityForDay() {
-        return this.http.get(`https://api.fitbit.com/1/user/${this.userId}/activities/date/today.json`)
+        return this.http.get(`user/${this.userId}/activities/date/today.json`)
     }
 
     getUserActivityList() {
         let today = moment().add(1, 'day').format('YYYY-MM-DD');
-        this.http.get(`https://api.fitbit.com/1/user/${this.userId}/activities/list.json?beforeDate=${today}&sort=desc&limit=20&offset=0`)
+        this.http.get(`user/${this.userId}/activities/list.json?beforeDate=${today}&sort=desc&limit=20&offset=0`)
     }
 
     getAllActivities() {
-        return this.http.get<I.FitBit.AllActivities.RootObject>(`https://api.fitbit.com/1/activities.json`)
+        return this.http.get<I.FitBit.AllActivities.RootObject>(`activities.json`)
             .then(res => {  // what if allFitbitActivities returns empty or error.. 
                 return res.data.categories
                     .filter(this.unwantedCatergories)
@@ -49,47 +49,47 @@ export class FitbitApiData {
     }
 
     getTcx(id: number) {
-        this.http.get(`https://api.fitbit.com/1/user/${this.userId}/activities/4252760842.tcx`)
+        this.http.get(`user/${this.userId}/activities/4252760842.tcx`)
     }
 
     getCalories() {
-        this.http.get(`https://api.fitbit.com/1/user/${this.userId}/activities/calories/date/today/3m.json`)
+        this.http.get(`user/${this.userId}/activities/calories/date/today/3m.json`)
     }
 
     getCaloriesBMR() {
-        this.http.get(`https://api.fitbit.com/1/user/${this.userId}/activities/caloriesBMR/date/today/3m.json`)
+        this.http.get(`user/${this.userId}/activities/caloriesBMR/date/today/3m.json`)
     }
 
     getDistance() {
-        this.http.get(`https://api.fitbit.com/1/user/${this.userId}/activities/distance/date/today/3m.json`)
+        this.http.get(`user/${this.userId}/activities/distance/date/today/3m.json`)
     }
 
     getFloors() {
-        this.http.get(`https://api.fitbit.com/1/user/${this.userId}/activities/floors/date/today/3m.json`)
+        this.http.get(`user/${this.userId}/activities/floors/date/today/3m.json`)
     }
 
     getElevation() {
-        this.http.get(`https://api.fitbit.com/1/user/${this.userId}/activities/elevation/date/today/3m.json`)
+        this.http.get(`user/${this.userId}/activities/elevation/date/today/3m.json`)
     }
 
     getMinutesSedentary() {
-        this.http.get(`https://api.fitbit.com/1/user/${this.userId}/activities/minutesSedentary/date/today/3m.json`)
+        this.http.get(`user/${this.userId}/activities/minutesSedentary/date/today/3m.json`)
     }
 
     getminutesLightlyActive() {
-        this.http.get(`https://api.fitbit.com/1/user/${this.userId}/activities/minutesLightlyActive/date/today/3m.json`)
+        this.http.get(`user/${this.userId}/activities/minutesLightlyActive/date/today/3m.json`)
     }
 
     getMinutesFairlyActive() {
-        this.http.get(`https://api.fitbit.com/1/user/${this.userId}/activities/minutesFairlyActive/date/today/3m.json`)
+        this.http.get(`user/${this.userId}/activities/minutesFairlyActive/date/today/3m.json`)
     }
 
     getMinutesVeryActive() {
-        this.http.get(`https://api.fitbit.com/1/user/${this.userId}/activities/minutesVeryActive/date/today/3m.json`)
+        this.http.get(`user/${this.userId}/activities/minutesVeryActive/date/today/3m.json`)
     }
 
     getActivityCalories() {
-        this.http.get(`https://api.fitbit.com/1/user/${this.userId}/activities/activityCalories/date/today/3m.json`)
+        this.http.get(`user/${this.userId}/activities/activityCalories/date/today/3m.json`)
     }
 
     unwantedCatergories(category: I.FitBit.AllActivities.Category) {
