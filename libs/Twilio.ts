@@ -5,17 +5,14 @@ import * as axios from 'axios';
 import * as p from '../config'
 import * as I from '../interfaces'
 
-var accountSid = p.twilioInfo.account.key;
-var authToken = p.twilioInfo.account.key
-
 export class Twilio {
-    static client = new twilio.RestClient(accountSid, authToken)
+    static authToken = p.twilioInfo.account.key
+    static accountSid = p.twilioInfo.account.key
+    static client = new twilio.RestClient(Twilio.accountSid, Twilio.authToken)
 
     constructor() { }
 
-    static init(): void {
-
-    }
+    static init(): void { }
 
     static sendMessagesToThese(numbers: string[] | string, message: string) {
         return Twilio.client.messages
@@ -46,7 +43,7 @@ export class Twilio {
         return "+1" + phone.replace(/[- )(]/g, '');
     }
 
-    static getMessages() {
+    static getMessages(): Q.Promise<any> {
         return Twilio.client.sms.messages.get({})
             .then((res: I.GetMessages.messagesGet) => {
                 console.log('testing:success');
