@@ -6,6 +6,13 @@ var IonicCloud = (function () {
     IonicCloud.init = function (bearerToken, profile) {
         IonicCloud.ionicProfile = profile;
         IonicCloud.bearerToken = bearerToken;
+        IonicCloud.ionicHttp = axios.create({
+            baseURL: 'https://api.ionic.io/push/',
+            headers: {
+                "Authorization": bearerToken,
+                "Content-Type": "application/json"
+            }
+        });
     };
     IonicCloud.sendNotification = function (messageParam, deviceToken) {
         var payload = {
@@ -20,7 +27,8 @@ var IonicCloud = (function () {
             .then(function (response) {
             console.log('success', response.data);
             return response;
-        })["catch"](function (err) {
+        })
+            .catch(function (err) {
             console.log('error', err);
             throw err;
         });
@@ -35,11 +43,6 @@ var IonicCloud = (function () {
                 return el.token;
             });
             return tokens;
-            // console.log('success', tokens)
-        })["catch"](function (err) {
-            // return "hi"
-            return err;
-            // console.log('error', err)
         });
     };
     return IonicCloud;
@@ -53,5 +56,5 @@ IonicCloud.ionicHttp = axios.create({
         "Content-Type": "application/json"
     }
 });
-exports.__esModule = true;
-exports["default"] = IonicCloud;
+exports.IonicCloud = IonicCloud;
+//# sourceMappingURL=ionicCloud.js.map
