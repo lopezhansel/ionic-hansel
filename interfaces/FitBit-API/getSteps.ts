@@ -1,5 +1,5 @@
 
-export declare module GetStepsInterface {
+export declare module Steps {
     /**
      * dateTime :  YYYY-MM-DD
      * value : NumberString
@@ -13,6 +13,12 @@ export declare module GetStepsInterface {
         'activities-steps': ActivitiesStep[];
     }
 
+    export interface pmWeekObj {
+        week: number;
+        baseline: number;
+        goal: number;
+        stepData: ActivitiesStep[];
+    }
 }
 
 
