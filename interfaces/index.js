@@ -1,3 +1,4 @@
 "use strict";
-var ionicCloud_1 = require("./ionicCloud");
-exports.ionCloud = ionicCloud_1["default"];
+var FitBit = require("./FitBit-API");
+exports.FitBit = FitBit;
+//# sourceMappingURL=index.js.map
