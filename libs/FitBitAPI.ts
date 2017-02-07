@@ -1,11 +1,11 @@
 import * as axios from 'axios';
 import * as I from '../interfaces';
-import { Observable } from 'rxjs/Observable'
+// import { Observable } from 'rxjs/Observable'
 import * as moment from 'moment'
 
 
 export class FitbitApiData {
-    
+
     public userId: string = '-';
     public static bearerToken = ""
     public http = axios.create({
@@ -43,7 +43,7 @@ export class FitbitApiData {
         return this.http.get<I.FitBit.AllActivities.RootObject>(`activities.json`)
             .then(res => {  // what if allFitbitActivities returns empty or error.. 
                 return res.data.categories
-                    .filter(this.unwantedCatergories)
+                    .filter(this.unwantedCategories)
                     .reduce(this.flattenAllActivities, [])
             });
     }
@@ -76,7 +76,7 @@ export class FitbitApiData {
         this.http.get(`user/${this.userId}/activities/minutesSedentary/date/today/3m.json`)
     }
 
-    getminutesLightlyActive() {
+    getMinutesLightlyActive() {
         this.http.get(`user/${this.userId}/activities/minutesLightlyActive/date/today/3m.json`)
     }
 
@@ -92,7 +92,7 @@ export class FitbitApiData {
         this.http.get(`user/${this.userId}/activities/activityCalories/date/today/3m.json`)
     }
 
-    unwantedCatergories(category: I.FitBit.AllActivities.Category) {
+    unwantedCategories(category: I.FitBit.AllActivities.Category) {
         return (  // Return only "Walking" , "Sports and Workouts" , "Dancing"
             category.name !== 'Wii Games' &&
             category.name !== 'XBOX Games' &&
