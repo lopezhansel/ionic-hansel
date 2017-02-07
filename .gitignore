@@ -10,7 +10,6 @@ config
 **.d.ts
 
 libs/User
-libs/Utils
 
 play.ts
 libs/Fcm_OFFLINE.ts
