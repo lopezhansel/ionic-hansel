@@ -1,4 +1,6 @@
 "use strict";
-var libs_1 = require("./libs");
-exports.__esModule = true;
-exports["default"] = libs_1["default"];
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+__export(require("./libs"));
+//# sourceMappingURL=index.js.map

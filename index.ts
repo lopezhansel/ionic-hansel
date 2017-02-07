@@ -1,4 +1,1 @@
-import libs from './libs'
-
-export default libs;
-
+export * from './libs';
