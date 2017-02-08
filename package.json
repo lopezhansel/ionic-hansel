@@ -1,15 +1,25 @@
 {
   "name": "ionic-hansel",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Code used within many of my ionic apps.",
   "main": "index.js",
+  "homepage": "https://github.com/lopezhansel/ionic-hansel",
+  "bugs": {
+    "url": "https://github.com/lopezhansel/ionic-hansel/issues"
+  },
+  "repository": {
+    "url": "git://github.com/lopezhansel/ionic-hansel.git",
+    "type": "git"
+  },
+  "readme": "readme.md",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "playground": "devtool play.js -w",
     "build": "tsc"
   },
-  "author": "lopezhansel@gmail.com",
-  "license": "ISC",
+  "author": "Hansel  Lopez <lopezhansel@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "@types/axios": "^0.9.35",
     "@types/bluebird": "^3.0.37",
