@@ -9,14 +9,12 @@ Purpose : Create a library of reusable code for future projects.
 - Observables
 
 ## Instructions
-You have two ways of installing this repository.
+You have two ways of installing this repository. You can clone repository or install with NPM.
 
-1. Clone repository.
-
+Clone repository.
 - Have the latest version of TypeScript install with `npm i -g npm typescript`.
 - You must build/compile the project with the command `tsc` or `npm  run build`
 - The tsc compiler will use this project's `tsconfig.json`. 
 
-2. Through NPM:
-
+Through NPM:
 - Run command `npm i -S ionic-hansel`
