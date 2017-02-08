@@ -1,8 +1,8 @@
 {
   "name": "ionic-hansel",
-  "version": "0.0.1",
-  "description": "Code used within many of my ionic apps.",
-  "main": "index.js",
+  "version": "0.0.2",
+  "description": "Code used within many of my Ionic apps.",
+  "main": "./build/index.js",
   "homepage": "https://github.com/lopezhansel/ionic-hansel",
   "bugs": {
     "url": "https://github.com/lopezhansel/ionic-hansel/issues"
@@ -12,10 +12,9 @@
     "type": "git"
   },
   "readme": "readme.md",
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "playground": "devtool play.js -w",
+    "playground": "devtool ./config/play.js -w",
     "build": "tsc"
   },
   "author": "Hansel  Lopez <lopezhansel@gmail.com>",
