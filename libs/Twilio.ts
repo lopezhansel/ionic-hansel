@@ -4,15 +4,15 @@ import * as axios from 'axios';
 import * as I from '../interfaces'
 
 export class Twilio {
+    static client: twilio.RestClient;
     static authToken: string;
     static accountSid: string;
     static accountPhoneNum: string;
     static getPhoneNumbersUrl: string;
-    static client = new twilio.RestClient(Twilio.accountSid, Twilio.authToken)
 
-    constructor() { }
-
-    static init(): void { }
+    static init(): void {
+        Twilio.client = new twilio.RestClient(Twilio.accountSid, Twilio.authToken)
+    }
 
     static sendMessagesToThese(numbers: string[] | string, message: string) {
         return Twilio.client.messages

@@ -4,7 +4,9 @@ var axios = require("axios");
 var Twilio = (function () {
     function Twilio() {
     }
-    Twilio.init = function () { };
+    Twilio.init = function () {
+        Twilio.client = new twilio.RestClient(Twilio.accountSid, Twilio.authToken);
+    };
     Twilio.sendMessagesToThese = function (numbers, message) {
         return Twilio.client.messages
             .create({
@@ -46,6 +48,5 @@ var Twilio = (function () {
     };
     return Twilio;
 }());
-Twilio.client = new twilio.RestClient(Twilio.accountSid, Twilio.authToken);
 exports.Twilio = Twilio;
 //# sourceMappingURL=Twilio.js.map
