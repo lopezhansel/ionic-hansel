@@ -1,13 +1,13 @@
 import * as twilio from 'twilio';
 import * as moment from 'moment';
 import * as axios from 'axios';
-// You need to create your own file at './config/private_info'
-import * as p from '../config'
 import * as I from '../interfaces'
 
 export class Twilio {
-    static authToken = p.twilioInfo.account.key
-    static accountSid = p.twilioInfo.account.key
+    static authToken: string;
+    static accountSid: string;
+    static accountPhoneNum: string;
+    static getPhoneNumbersUrl: string;
     static client = new twilio.RestClient(Twilio.accountSid, Twilio.authToken)
 
     constructor() { }
@@ -18,17 +18,17 @@ export class Twilio {
         return Twilio.client.messages
             .create({
                 to: numbers,
-                from: p.twilioInfo.account,
+                from: Twilio.accountPhoneNum,
                 body: message,
             })
     }
 
     static getPhoneNumber(): Axios.IPromise<string[]> {
-        return axios.get<any>(p.twilioInfo.account.privateUrl)
+        return axios.get<any>(Twilio.getPhoneNumbersUrl)
             .then(res => {
                 let phones = res.data
                     .map(u => {
-                        u.phone = Twilio.parsePhoneNums(u.phone)
+                        u.phone = Twilio.parsePhoneNumbers(u.phone)
                         return u
                     })
                     .filter(u => u.phone.length == 12)
@@ -37,7 +37,7 @@ export class Twilio {
             })
     }
 
-    static parsePhoneNums(phone: string): string {
+    static parsePhoneNumbers(phone: string): string {
         let test1 = "(123)456-7890";
         let test = "(123) 456-7890";
         return "+1" + phone.replace(/[- )(]/g, '');
@@ -56,10 +56,7 @@ export class Twilio {
     }
 
     static sendMessageToSelf(): void {
-        Twilio.sendMessagesToThese([p.twilioInfo.account.mynumber], `New Message Sent on:  ${new Date().toString()}`)
+        Twilio.sendMessagesToThese([Twilio.accountPhoneNum], `New Message Sent on:  ${new Date().toString()}`)
     }
 
 }
-
-
-
