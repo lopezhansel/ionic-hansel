@@ -9,7 +9,6 @@ config
 *.js.map
 **.d.ts
 
-libs/User
 
 play.ts
 libs/Fcm_OFFLINE.ts
