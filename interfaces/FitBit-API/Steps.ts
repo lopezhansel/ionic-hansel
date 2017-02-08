@@ -9,11 +9,11 @@ export declare module Steps {
         value: string; // Number
     }
 
-    export interface GetSteps {
+    export interface RootSteps {
         'activities-steps': ActivitiesStep[];
     }
 
-    export interface pmWeekObj {
+    export interface PmWeekObj {
         week: number;
         baseline: number;
         goal: number;
