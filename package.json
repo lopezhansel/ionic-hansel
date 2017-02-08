@@ -4,7 +4,9 @@
   "description": "Code used within many of my ionic apps.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "playground": "devtool play.js -w",
+    "build": "tsc"
   },
   "author": "lopezhansel@gmail.com",
   "license": "ISC",
