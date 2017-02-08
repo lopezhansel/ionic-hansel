@@ -1,2 +1,2 @@
 export * from './Profile';
-export * from "./Goals";
+export * from './MyEvent'
