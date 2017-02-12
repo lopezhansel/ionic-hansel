@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
-        "target": "es3",
+        // "target": "es3", // can't user setters and getters
+        "target": "es5",
         "sourceMap": true,
         "declaration": true,
         "outDir": "./build",

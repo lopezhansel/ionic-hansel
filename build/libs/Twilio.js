@@ -12,7 +12,7 @@ var Twilio = (function () {
             .create({
             to: numbers,
             from: Twilio.accountPhoneNum,
-            body: message
+            body: message,
         });
     };
     Twilio.getPhoneNumber = function () {
@@ -38,7 +38,8 @@ var Twilio = (function () {
             .then(function (res) {
             console.log('testing:success');
             console.log(JSON.stringify(res));
-        })["catch"](function (err) {
+        })
+            .catch(function (err) {
             console.log('testing:error');
             console.log(err);
         });

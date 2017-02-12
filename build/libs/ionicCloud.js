@@ -27,7 +27,8 @@ var IonicCloud = (function () {
             .then(function (response) {
             console.log('success', response.data);
             return response;
-        })["catch"](function (err) {
+        })
+            .catch(function (err) {
             console.log('error', err);
             throw err;
         });
