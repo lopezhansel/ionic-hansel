@@ -4,4 +4,5 @@ function __export(m) {
 }
 __export(require("./Profile"));
 __export(require("./MyEvent"));
+__export(require("./Goals"));
 //# sourceMappingURL=index.js.map
