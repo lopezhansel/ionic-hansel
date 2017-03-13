@@ -1,4 +1,3 @@
-import { connectableObservableDescriptor } from 'rxjs/observable/ConnectableObservable';
 import * as moment from 'moment'
 import * as I from '../../interfaces'
 import { Steps } from '../../interfaces/FitBit-API/Steps'
